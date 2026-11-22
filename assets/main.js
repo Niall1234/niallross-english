@@ -22,3 +22,23 @@ filterButtons.forEach((button) => {
     });
   });
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const headerContainer = document.getElementById("site-header");
+  if (headerContainer) {
+    fetch("header.html")
+      .then((res) => res.text())
+      .then((data) => {
+        headerContainer.innerHTML = data;
+        
+        // Highlight active link matching current page
+        const currentPage = window.location.pathname.split("/").pop() || "index.html";
+        const navLinks = headerContainer.querySelectorAll("nav a");
+        navLinks.forEach((link) => {
+          if (link.getAttribute("href") === currentPage) {
+            link.classList.add("active");
+          }
+        });
+      });
+  }
+});
