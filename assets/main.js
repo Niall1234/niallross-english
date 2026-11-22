@@ -26,19 +26,36 @@ filterButtons.forEach((button) => {
 document.addEventListener("DOMContentLoaded", () => {
   const headerContainer = document.getElementById("site-header");
   if (headerContainer) {
-    fetch("components/header.html")
-      .then((res) => res.text())
+    // If we are on GitHub Pages subfolder (/niallross-english/) vs local root
+    const isGitHubPages = window.location.pathname.startsWith("/niallross-english");
+    const basePath = isGitHubPages ? "/niallross-english/" : "/";
+    
+    // Fetch header using absolute root path
+    fetch(`${basePath}components/header.html`)
+      .then((res) => {
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        return res.text();
+      })
       .then((data) => {
         headerContainer.innerHTML = data;
-        
-        // Highlight active link matching current page
-        const currentPage = window.location.pathname.split("/").pop() || "index.html";
+
+        // Highlight active link matching current URL
+        const currentPath = window.location.pathname;
         const navLinks = headerContainer.querySelectorAll("nav a");
+        
         navLinks.forEach((link) => {
-          if (link.getAttribute("href") === currentPage) {
-            link.classList.add("active");
+          const href = link.getAttribute("href");
+          if (href === "about" || href === "about/" || href.includes("about")) {
+            if (currentPath.includes("/about")) {
+              link.classList.add("active");
+            }
+          } else if (href === "index.html" || href === "/" || href === "") {
+            if (currentPath.endsWith("/") && !currentPath.includes("/about")) {
+              link.classList.add("active");
+            }
           }
         });
-      });
+      })
+      .catch((err) => console.error("Header fetch error:", err));
   }
 });

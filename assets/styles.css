@@ -1,12 +1,13 @@
 :root {
-  --bg: #0f172a;
-  --surface: #1e293b;
-  --surface-alt: #131c31;
+  --bg: #69223C;
+  --surface: #232B28;
+  --surface-alt: #232B28;
   --text: #f8fafc;
   --muted: #cbd5e1;
-  --accent: #38bdf8;
-  --accent-text: #082f49;
-  --border: #334155;
+  --accent: #B544A6;
+  --accent-text: #FAF9F7;
+  --border: #232B28;
+  --header: #232B28;
   --radius: 10px;
   --max-width: 1000px;
 }
@@ -33,7 +34,7 @@ body {
   padding: 1rem 0;
   position: sticky;
   top: 0;
-  background: rgba(15, 23, 42, 0.92);
+  background: var(--header);
   backdrop-filter: blur(8px);
 }
 
@@ -66,6 +67,7 @@ nav a {
   color: var(--muted);
   text-decoration: none;
   font-size: 0.95rem;
+  font-weight: bold;
 }
 
 nav a:hover {
@@ -77,7 +79,7 @@ nav a:hover {
 }
 
 .eyebrow {
-  color: var(--accent);
+  color: var(--text);
   font-weight: 600;
   font-size: 0.9rem;
   margin-bottom: 0.5rem;
@@ -237,3 +239,4 @@ h1 {
     height: 100%;
     border: none;
 } 
+
