@@ -227,8 +227,6 @@ h1 {
     margin-right: auto;
     width: 100%;
     max-width: 640px;
-    border-width: 1px;
-    border-color: black;
     aspect-ratio: 16 / 9;
     align-self: flex-start;
     text-align: left;
@@ -240,3 +238,6 @@ h1 {
     border: none;
 } 
 
+#how-it-works {
+  background-color: var(--accent);
+}
