@@ -26,7 +26,7 @@ filterButtons.forEach((button) => {
 document.addEventListener("DOMContentLoaded", () => {
   const headerContainer = document.getElementById("site-header");
   if (headerContainer) {
-    fetch("header.html")
+    fetch("components/header.html")
       .then((res) => res.text())
       .then((data) => {
         headerContainer.innerHTML = data;
