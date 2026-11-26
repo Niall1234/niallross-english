@@ -1,11 +1,12 @@
 :root {
-  --bg: #69223C;
+  /*--bg: #69223C;*/
+  --bg: #FFFFFF;
   --surface: #232B28;
   --surface-alt: #232B28;
-  --text: #f8fafc;
+  --text: #000000;
   --muted: #cbd5e1;
   --accent: #B544A6;
-  --accent-text: #FAF9F7;
+  --accent-text: #ffffff;
   --border: #232B28;
   --header: #232B28;
   --radius: 10px;
@@ -240,4 +241,8 @@ h1 {
 
 #how-it-works {
   background-color: var(--accent);
+}
+
+#logo {
+  color: var(--accent-text);
 }
